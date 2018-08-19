@@ -1,6 +1,7 @@
 ﻿namespace _07._Max_Sequence_of_Increasing_Elements
 {
     using System;
+    using System.Linq;
 
     public class Program
     {
