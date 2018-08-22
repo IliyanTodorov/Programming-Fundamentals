@@ -6,12 +6,12 @@ namespace _04._Anonymous_Cache
 {
     class Program
     {
-        static void Main(string[] args) // 90/100
+        static void Main(string[] args) // 100/100
         {
             // dataSet -> dataKey -> dataSize
-            var dataSet = new Dictionary<string, Dictionary<string, int>>();
+            var dataSet = new Dictionary<string, Dictionary<string, long>>();
             // dataSet -> dataKey -> dataSize
-            var cache = new Dictionary<string, Dictionary<string, int>>(); 
+            var cache = new Dictionary<string, Dictionary<string, long>>(); 
             
 
             while (true)
@@ -30,14 +30,14 @@ namespace _04._Anonymous_Cache
                         .ToArray();
 
                     string Key = tokens[0];
-                    int Size = int.Parse(tokens[1]);
+                    long Size = long.Parse(tokens[1]);
                     string Set = tokens[2];
 
                     if (!dataSet.ContainsKey(Set))
                     {
                         if (!cache.ContainsKey(Set))
                         {
-                            cache.Add(Set, new Dictionary<string, int>());
+                            cache.Add(Set, new Dictionary<string, long>());
                             
                         }
                         cache[Set].Add(Key, Size);
@@ -54,7 +54,7 @@ namespace _04._Anonymous_Cache
 
                     if (!dataSet.ContainsKey(Set))
                     {
-                        dataSet.Add(Set, new Dictionary<string, int>());
+                        dataSet.Add(Set, new Dictionary<string, long>());
                     }
 
                     if (cache.ContainsKey(Set))
